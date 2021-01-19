@@ -15,10 +15,13 @@ class AddEducation extends React.Component {
   }
 
   render() {
+    const { onFormSubmit } = this.props;
     const isSelected = this.state.isSelected;
     let content;
     if (isSelected) {
-      content = <EducationForm onClose={this.handleClick} />;
+      content = (
+        <EducationForm onClose={this.handleClick} onFormSubmit={onFormSubmit} />
+      );
     } else {
       content = (
         <i onClick={this.handleClick} className="fas fa-plus-square add"></i>

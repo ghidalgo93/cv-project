@@ -1,4 +1,5 @@
 import React from "react";
+import uniqid from "uniqid";
 import "./App.css";
 import CvBuilder from "./components/CvBuilder";
 import CvViewer from "./components/CvViewer";
@@ -12,19 +13,42 @@ class App extends React.Component {
       phone: "",
       website: "",
       github: "",
-      // education: [],
-      // experience: [],
+      education: [],
+      experience: [],
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleChange(state, value) {
+  handleInputChange(state, value) {
     this.setState({ [state]: value });
+  }
+  handleFormSubmit(state, valuesObj) {
+    const obj = { values: valuesObj, id: uniqid() };
+    this.setState({
+      [state]: this.state[state].concat(obj),
+    });
+  }
+  handleDelete(state, id) {
+    this.setState({
+      [state]: this.state[state].filter((i) => {
+        return i.id !== id;
+      }),
+    });
   }
 
   render() {
-    const { name, email, phone, website, github } = this.state;
+    const {
+      name,
+      email,
+      phone,
+      website,
+      github,
+      education,
+      experience,
+    } = this.state;
     return (
       <div className="App">
         <CvBuilder
@@ -33,7 +57,10 @@ class App extends React.Component {
           phone={phone}
           website={website}
           github={github}
-          onInputChange={this.handleChange}
+          education={education}
+          experience={experience}
+          onInputChange={this.handleInputChange}
+          onFormSubmit={this.handleFormSubmit}
         />
         <CvViewer
           name={name}
@@ -41,6 +68,8 @@ class App extends React.Component {
           phone={phone}
           website={website}
           github={github}
+          education={education}
+          onDelete={this.handleDelete}
         />
       </div>
     );

@@ -6,7 +6,7 @@ import "./CvBuilder.css";
 
 class CvBuilder extends React.Component {
   render() {
-    const { onInputChange } = this.props;
+    const { onFormSubmit, onInputChange } = this.props;
     const { name, email, phone, website, github } = this.props;
 
     return (
@@ -42,8 +42,8 @@ class CvBuilder extends React.Component {
           onInputChange={onInputChange}
           placeHolder={"GitHub"}
         />
-        <AddEducation />
-        <AddExperience />
+        <AddEducation onFormSubmit={onFormSubmit} />
+        <AddExperience onFormSubmit={onFormSubmit} />
       </fieldset>
     );
   }

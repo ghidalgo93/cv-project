@@ -1,8 +1,18 @@
 import React from "react";
+import EducationDisplay from "./EducationDisplay";
 
 class CvViewer extends React.Component {
   render() {
-    const { name, email, phone, website, github } = this.props;
+    const { name, email, phone, website, github, education } = this.props;
+
+    const edList = education.map((edObj) => (
+      <EducationDisplay
+        onDelete={this.props.onDelete}
+        values={edObj.values}
+        key={edObj.id}
+        id={edObj.id}
+      />
+    ));
 
     return (
       <fieldset>
@@ -24,6 +34,7 @@ class CvViewer extends React.Component {
           <i className="fab fa-github"></i>
           {github}
         </p>
+        <div>Education {edList}</div>
       </fieldset>
     );
   }
