@@ -12,29 +12,36 @@ class App extends React.Component {
       phone: "",
       website: "",
       github: "",
-      education: [],
-      experience: [],
+      // education: [],
+      // experience: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(state, value) {
-    if (state === "name") this.setState({ name: value });
-    else if (state === "email") this.setState({ email: value });
+    this.setState({ [state]: value });
   }
 
   render() {
-    const { name, email } = this.state;
-
+    const { name, email, phone, website, github } = this.state;
     return (
       <div className="App">
         <CvBuilder
           name={name}
           email={email}
+          phone={phone}
+          website={website}
+          github={github}
           onInputChange={this.handleChange}
         />
-        <CvViewer name={name} email={email} />
+        <CvViewer
+          name={name}
+          email={email}
+          phone={phone}
+          website={website}
+          github={github}
+        />
       </div>
     );
   }

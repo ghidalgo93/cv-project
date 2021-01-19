@@ -2,13 +2,28 @@ import React from "react";
 
 class CvViewer extends React.Component {
   render() {
-    const { name, email } = this.props;
+    const { name, email, phone, website, github } = this.props;
 
     return (
       <fieldset>
         <legend>CV Viewer:</legend>
-        <p>Name: {name}</p>
-        <p>Email: {email}</p>
+        <p>{name}</p>
+        <p>
+          <i className="fas fa-envelope"></i>
+          {email}
+        </p>
+        <p>
+          <i className="fas fa-phone-square"></i>
+          {phone}
+        </p>
+        <p>
+          <i className="fas fa-home"></i>
+          {website}
+        </p>
+        <p>
+          <i className="fab fa-github"></i>
+          {github}
+        </p>
       </fieldset>
     );
   }

@@ -8,18 +8,22 @@ class InputCv extends React.Component {
   }
 
   handleChange(e) {
-    this.props.onInputChange(this.props.state, e.target.value);
+    this.props.onInputChange(this.props.input, e.target.value);
   }
 
   render() {
     return (
-      <input
-        value={this.props.value}
-        onChange={this.handleChange}
-        type="text"
-        placeholder={this.props.placeHolder}
-        autoComplete="off"
-      />
+      <label>
+        {this.props.input}:
+        <input
+          id={this.props.input}
+          value={this.props.value}
+          onChange={this.handleChange}
+          type="text"
+          placeholder={this.props.placeHolder}
+          autoComplete="off"
+        />
+      </label>
     );
   }
 }
