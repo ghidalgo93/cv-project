@@ -1,6 +1,6 @@
 import ExperienceForm from "./ExperienceForm";
 import React from "react";
-import "./FormAdd.css";
+import "../styles/App.css";
 
 class AddExperience extends React.Component {
   constructor(props) {
@@ -15,22 +15,23 @@ class AddExperience extends React.Component {
   }
 
   render() {
+    const { onFormSubmit } = this.props;
     const isSelected = this.state.isSelected;
     let content;
     if (isSelected) {
-      content = <ExperienceForm onClose={this.handleClick} />;
+      content = (
+        <ExperienceForm
+          onClose={this.handleClick}
+          onFormSubmit={onFormSubmit}
+        />
+      );
     } else {
       content = (
         <i onClick={this.handleClick} className="fas fa-plus-square add"></i>
       );
     }
 
-    return (
-      <div>
-        Experience
-        {content}
-      </div>
-    );
+    return <div>{content}</div>;
   }
 }
 

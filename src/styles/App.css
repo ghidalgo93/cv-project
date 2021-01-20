@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+.main-bg {
+  background-color: #7094ff;
+}
+
+.cv-container {
+  margin: 5%;
+  padding: 3em;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.cv-container > .addForm {
+  margin: 2em;
+}
+
+.basic-info > p {
+  margin: 1em;
+}
+
+.display > p {
+  font-size: 0.75em;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.add {
+  color: black;
+}
+
+.add:hover {
+  color: green;
+}
+
+.cancel {
+  color: black;
+  align-self: center;
+}
+
+.cancel:hover {
+  color: red;
+}

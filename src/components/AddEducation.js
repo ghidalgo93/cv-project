@@ -1,6 +1,6 @@
 import EducationForm from "./EducationForm";
 import React from "react";
-import "./FormAdd.css";
+import "../styles/App.css";
 
 class AddEducation extends React.Component {
   constructor(props) {
@@ -28,12 +28,7 @@ class AddEducation extends React.Component {
       );
     }
 
-    return (
-      <div>
-        Education
-        {content}
-      </div>
-    );
+    return <div>{content}</div>;
   }
 }
 

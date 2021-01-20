@@ -1,6 +1,6 @@
 import React from "react";
 import uniqid from "uniqid";
-import "./App.css";
+import "./styles/App.css";
 import CvBuilder from "./components/CvBuilder";
 import CvViewer from "./components/CvViewer";
 
@@ -69,7 +69,10 @@ class App extends React.Component {
           website={website}
           github={github}
           education={education}
+          experience={experience}
           onDelete={this.handleDelete}
+          onInputChange={this.handleInputChange}
+          onFormSubmit={this.handleFormSubmit}
         />
       </div>
     );

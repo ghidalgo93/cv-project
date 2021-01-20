@@ -1,9 +1,0 @@
-.FormEducation {
-  display: flex;
-  flex-direction: column;
-}
-
-.date {
-  display: flex;
-  flex-direction: row;
-}

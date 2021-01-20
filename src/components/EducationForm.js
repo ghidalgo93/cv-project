@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.css";
+import "../styles/App.css";
 
 class FormEducation extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class FormEducation extends React.Component {
 
   render() {
     return (
-      <form className="FormEducation">
+      <form className="column">
         <input
           type="text"
           value={this.state.schoolName}
@@ -43,7 +43,7 @@ class FormEducation extends React.Component {
           placeholder="Title of Study"
           onChange={(e) => this.handleChange("studyName", e)}
         />
-        <div className="date">
+        <div>
           From:{" "}
           <input
             type="date"
@@ -55,12 +55,17 @@ class FormEducation extends React.Component {
             onChange={(e) => this.handleChange("endDate", e)}
           />
         </div>
-        <i
-          type="submit"
-          onClick={this.handleFormSubmit}
-          className="fas fa-check-square"
-        ></i>
-        <i onClick={this.handleClose} className="fas fa-window-close"></i>
+        <div>
+          <i
+            type="submit"
+            onClick={this.handleFormSubmit}
+            className="fas fa-check-square add"
+          ></i>
+          <i
+            onClick={this.handleClose}
+            className="fas fa-window-close cancel"
+          ></i>
+        </div>
       </form>
     );
   }

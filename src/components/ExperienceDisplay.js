@@ -1,6 +1,6 @@
 import React from "react";
 
-class EducationDisplay extends React.Component {
+class ExperienceDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isEditing: false };
@@ -10,7 +10,7 @@ class EducationDisplay extends React.Component {
   }
 
   handleDelete() {
-    this.props.onDelete("education", this.props.id);
+    this.props.onDelete("experience", this.props.id);
   }
   handleEdit() {
     this.setState({ isEditing: !this.state.isEditing });
@@ -22,11 +22,12 @@ class EducationDisplay extends React.Component {
       <div className={"row"}>
         <div className={"display"}>
           <hr />
-          <p>{values.schoolName}</p>
+          <p>{values.coName}</p>
           <p>
             ({values.startDate})-({values.endDate})
           </p>
-          <p>{values.studyName}</p>
+          <p>{values.positionTitle}</p>
+          <p>{values.mainTasks}</p>
         </div>
         <i onClick={this.handleDelete} className="fas fa-trash-alt cancel"></i>
       </div>
@@ -36,4 +37,4 @@ class EducationDisplay extends React.Component {
   }
 }
 
-export default EducationDisplay;
+export default ExperienceDisplay;
